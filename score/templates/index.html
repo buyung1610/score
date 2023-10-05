@@ -6,6 +6,8 @@
             border: 1px solid black;
             border-collapse: collapse;
             text-align: center;
+            padding-left: 50px;
+            padding-right: 50px;
         }
     </style>
     <meta charset="UTF-8">
@@ -13,20 +15,22 @@
     <title>Student Scores</title>
 </head>
 <body>
+    <form action="/" method="POST">
+        <input name="name" placeholder="Name" type="text">
+        <input name="score" placeholder="Score" type="number" min="0" max="100">
+        <input type="submit" value="Add birthday">
+    </form>
     <table>
         <tr>
             <th>Name</th>
             <th>Score</th>
         </tr>
-        {% for student in students %}
+        {% for student in score %}
             <tr>
                 <td>{{student.name}}</td>
                 <td>{{student.score}}</td>
             </tr>
         {% endfor %}
     </table>
-    
-        
-    
 </body>
 </html>
