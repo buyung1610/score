@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Scores</title>
 </head>
 <body>
-    
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Score</th>
+        </tr>
         {% for student in students %}
-            
-                <h1>{{ student['name'] }}</h1><br>
-                {% if student['score'] > 90 %}
-                    Congratulations
-                {% elif student['score'] >= 76 %}
-                    Very good
-                {% else %}
-                    Maaf, Anda belum lulus
-                {% endif %}
-            
+            <tr>
+                <td>{{student.name}}</td>
+                <td>{{student.score}}</td>
+            </tr>
         {% endfor %}
+    </table>
+    
+        
     
 </body>
 </html>
