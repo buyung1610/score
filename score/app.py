@@ -27,3 +27,15 @@ def index():
         score = db.execute("SELECT * FROM score")    
 
         return render_template("index.html", score=score)
+    
+@app.route("/edit/<id>", methods=["GET", "POST"])
+def edit_data(id):
+    if request.method == "GET":
+        score = db.execute("SELECT * FROM score WHERE id = ?", id)[0]
+        print(score)
+        return render_template("edit.html", score=score)
+    else:
+        score_name = request.form.get("name")
+        score_score = request.form.get("score")
+        db.execute('UPDATE score set name = ?, score = ? where id = ?', score_name, score_score, id)
+        return redirect("/")

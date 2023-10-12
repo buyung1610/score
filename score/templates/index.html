@@ -18,17 +18,21 @@
     <form action="/" method="POST">
         <input name="name" placeholder="Name" type="text">
         <input name="score" placeholder="Score" type="number" min="0" max="100">
-        <input type="submit" value="Add birthday">
+        <input type="submit" value="Add score">
     </form>
     <table>
         <tr>
             <th>Name</th>
             <th>Score</th>
+            <th>Edit</th>
         </tr>
         {% for student in score %}
             <tr>
                 <td>{{student.name}}</td>
                 <td>{{student.score}}</td>
+                <td>
+                    <a href="/edit/{{ student['id'] }}">Edit</a>
+                </td>
             </tr>
         {% endfor %}
     </table>
