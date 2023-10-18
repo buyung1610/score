@@ -25,13 +25,18 @@
             <th>Name</th>
             <th>Score</th>
             <th>Edit</th>
+            <th>Delete</th>
         </tr>
         {% for student in score %}
             <tr>
                 <td>{{student.name}}</td>
                 <td>{{student.score}}</td>
                 <td>
-                    <a href="/edit/{{ student['id'] }}">Edit</a>
+                    <a href="/edit/{{ student['id'] }}">Edit</a>                    
+                </td>
+                <td>
+                    <a href="/delete/{{ student['id'] }}"
+                    onclick="return confirm('apakah anda yakin akan menghapus');">delete</a>
                 </td>
             </tr>
         {% endfor %}
